@@ -1,0 +1,131 @@
+\title{Math 239 Fall 2023 Tutorial Review Session}
+
+\date{2023 Nov. 30/Dec. 1}
+\maketitle
+
+\begin{enumerate}
+    \question{Compositions} Find the generating function for number of compositions with at least $3$ parts where each part is an even number greater than $3$.
+    \answer Each part has generating function
+    \begin{align*}
+        P(x) = x^4 + x^6 + x^8 + \cdots = \frac{x^4}{1-x^2}.
+    \end{align*}
+    Then the GF for the whole thing is
+    \begin{align*}
+        C(x) = P(x)^3 + P(x)^4 + P(x)^5 + \cdots = \frac{P(x)^3}{1-P(x)} = \frac{x^{12}}{1-3x^2 +2x^4 +x^6 -x^8}.
+    \end{align*}
+    
+    \question{Sequences} Give the generating functions of the following sequences. Give a recursion that these sequences satisfy.
+    \begin{enumerate}
+        \item $a_n = 3 + 3(2^n)$.
+        \item $b_n = \lfloor \frac{n}{2} \rfloor$ (so $0,0,1,1,2,2, \cdots$).
+        % \item $c_n = \frac{1}{n}$ for $n >1$, $c_0 = 0$.
+    \end{enumerate}
+    \answer 
+    \begin{enumerate}
+        \item $A(x) = 3 \sum x^n + 3 \sum(2x)^n = \frac{3}{1-x} + \frac{3}{1-2x} = \frac{6 - 9 x}{2 x^2 - 3 x + 1}$.
+        Then the recursion with characteristic polynomial $2 x^2 - 3 x + 1$ is
+        \begin{align*}
+            a_n = 3a_{n-1} - 2a_{n-2}, \qquad a_{0} = 6 , a_{1} = 9.
+        \end{align*}
+        \item First recall/note that $\sum_{n \geq 0} n x^n = \frac{x}{(1-x)^2}$.
+        \begin{align*}
+            B(x) &= 0x^0 + 0x + 1x^2 + 1x^3 + 2x^4 + 2x^5 + \cdots\\
+            &= \left( 0x^0 + 1x^2 + 2x^4 + \cdots \right) + x\left( 0x^0 + 1x^2 + 2x^4 + \cdots\right)\\
+            &= \sum_{n \geq 0} \left(  n x^{2n} \right) + x \sum_{n \geq 0} \left(  n x^{2n} \right)\\
+            &= \frac{x^2}{(1-x^2)^2} + \frac{x^3}{(1-x^2)^2}\\
+            &= \frac{x^2}{x^3 - x^2 - x + 1}
+        \end{align*}
+        This gives a recursion of
+        \begin{align*}
+            a_n = a_{n-1} + a_{n-2} - a_{n-3}, \qquad a_0 = 0, a_1 = 0, a_2 = 1.
+        \end{align*}
+    \end{enumerate}
+    
+    \question{Trees} Let $T$ be a tree with $|V(T)|\geq 2$ and no vertices of degree two. Prove that more than half of the vertices of $T$ are leaves.
+    \answer Let $n=|V(T)|$. Since $T$ is a tree $|E(T)|=n-1$. By the handshaking lemma, 
+    \begin{align*}
+        \sum_{v\in V(T)} deg(v)=2|E(T)|=2(n-1).    
+    \end{align*} 
+    Let $L$ be the set of leaves in $T$ and $|L|=l$. Since $T$ has no vertices of degree two 
+    \begin{align*}
+            l+\sum_{v\notin L} deg(v)=2n-2\geq l+3(n-l)=3n-2l.    
+    \end{align*}
+    Hence $2l\geq n+2$ and thus $l\geq \frac{n}{2}+1$ and the result follows. 
+    
+    \question{Cycles} Let $G$ be a connected graph on $n\geq 1$ vertices with $n$ edges.
+    \begin{enumerate}
+        \item Prove that the average degree of the vertices of $G$ is 2.
+        \item Prove that $G$ has a unique cycle.
+    \end{enumerate}
+    \answer 
+    \begin{enumerate}
+        \item By the handshaking lemma, $\sum_{v\in V(G)} deg(v)=2|E(G)|=2n=2|V(G)|$. Thus $\frac{1}{|V(G)|}\sum_{v\in V(G)}deg(v)=2$. 
+        \item Since $n>n-1$, $G$ is not a tree. Thus $G$ contains a cycle. For the sake of contradiction suppose $G$ contains two distinct cycles $C_1$ and $C_2$. Since the cycles are distinct $C_1$ contains some edge $e_1$ such that $e_1$ is not in $C_2$ and $C_2$ contains some edge $e_2$ such that $e_2$ is not in $C_1$. Since $e_1$ and $e_2$ are in cycles, $e_1$ and $e_2$ are not bridges in $G$. Since $e_1$ is not a bridge $G-e_1$ is still connected. Since $e_1$ is not in $C_2$, $C_2$ is still a cycle in $G-e_1$, so $e_2$ is still not a bridge. Thus $G'=G-e_1-e_2$ is connected. However $|E(G')|=n-2$ which contradicts $G'$ being connected since the minimum number of edges a connected graph on $n$ vertices can have is $n-1$. Thus $G$ contains exactly one cycle. 
+    \end{enumerate}
+    
+    \question{Planar Embedding} Let $G$ be a connected planar graph. Prove that if $G$ is not bipartite, then any planar embedding of $G$ has at least 2 faces with odd degree.
+    \answer Since $G$ is not bipartite, $G$ contains an odd cycle $C$. Let $F_1, \dots, F_k$ be the faces inside $C$ in the planar embedding. Consider the sum of the degrees of the faces. 
+    \begin{itemize}
+        \item Each edge in $C$ gets counted once
+        \item Let $D$ be the set of edges on any boundary of any $F_i$, but not on $C$. 
+    \end{itemize}
+    Each edge in $D$ is counted twice. So $\sum_i \mathrm{deg}(F_i) = |E(C)| + 2|D|$. Since $|E(C)|$ is odd and $2|D|$ is even, $\sum_i \mathrm{deg}(F_i)$ is odd, so $deg(F_i)$ must be odd for some $i$, and therefore we have at least one face inside $C$ with odd degree. We can use a similar argument for the existence of a face outside $C$ with odd degree, so there must be at least two faces with odd degree. 
+    
+    % \question{Bridges} Let $G$ be a 4-regular graph. Prove that $G$ does not have a bridge. (Note: $G$ is not necessarily connected.)
+    % \answer Suppose for contradiction that $e = uv$ is a bridge in $G$, and let $H$ be the component of $G$ that contains $e$. Then $H - e$ has two components, which we will call $H_1$ and $H_2$. Suppose $u \in V(H_1)$. Since $G$ is 4-regular, every vertex in $H_1$ has degree 4, except $u$ (since we removed edge $e=uv$). Then $H_1$ is a graph with an odd number (one) of vertices with odd degree (3), which is a contradiction. Therefore, no bridge can exist.
+
+    \question{Matching} Let $G$ be a graph on $n$ vertices where $n$ is even. Suppose that $deg_G(v) \geq n/2$ for all $v \in V(G).$ Prove that $G$ has a perfect matching.
+
+   Hint: Prove that if $M$ is a matching that is not perfect, then there exists an augmenting path with respect to $M$ of length $1$ or $3$.
+    \answer 
+    Suppose not (for a contradiction). Let $M$ be a maximum matching of $G$. Let $e_1 = u_1v_1, e_2 = u_2v_2, \cdots, e_k=v_ku_k$ be the edges of $M$. Let $X = \{u_i, v_i: i \in \{1, \cdots, k\}\}$. Note that $|X| = 2k$.
+    
+    First suppose there exists an edge $e=uv \in E(G)$ where $u, v \not \in X$. But then $e$ is an $M$-augmenting path of length one, contradicting Lemma 8.1.1 as $M$ is maximum.
+
+    So we assume that for every edge $e = uv \in E(G)$, we have $\{u,v\} \cap X \neq \empty$ (that is, $X$ is a cover of $G$). Since $M$ is not perfect, we have that $k < n/2$ and hence $|X| < n$. Since $|X|$ is even and $n$ is even, it follows that $|X| \leq n-2$. Thus there exists distinct $u,v\in V(G) \setminus X$.
+
+    Since $X$ is a cover of $G$, we find that $N_G(u) \subseteq X$ and similarly $N_G(v) \subseteq X$.
+
+    First suppose there exists $i \in \{1, \cdots, k\}$ such that $|N_G(u) \cap \{u_i, v_i\}| + |N_G(v) \cap \{u_i, v_i\}| \geq 3$.
+
+    Without loss of generality, we assume that $u_i, v_i \in N_G(u)$; similarly without loss of generality, we assume that $v_i \in N_G(v)$. But then $P = uu_iv_iv$ is an $M$-augmenting path of $G$, contradicting Lemma 8.1.1 as $M$ is maximum.
+
+    So we assume that for every $i \in \{1, \cdots, k\}$ we have that
+    \[|N_G(u) \cap \{u_i, v_i\}| + |N_G(v) \cap \{u_i, v_i\}| \leq 2.\]
+    But then summing over $i$ and using that $N_G(u), N_G(v) \subseteq X$, we find that 
+    \[|N_G(u)| + |N_G(v)| \leq \sum_{i=1}^k |N_G(u) \cap \{u_i, v_i\}| + |N_G(v) \cap \{u_i, v_i\}| \leq 2k < n.\]
+    
+    Yet by assumption every vertex of $G$ has degree at least $n/2$ and hence 
+    \[|N_G(u)| + |N_G(v)| = deg_G(u) + deg_G(v) \geq n/2 + n/2 = n,\]
+    contradicting the previous inequality.
+
+    \question{Cover} Let $G$ be a bipartite graph with bipartition $(A,B)$, and let $C_1$ and $C_2$ be covers of $G$. Define 
+    \[C_3 := \left( (C_1 \cap C_2) \cap A \right) \cup ((C_1 \cup  C_2) \cap B)\]
+    \begin{enumerate}
+        \item Show that $C_3$ is a cover.
+        \item Show that if $C_1$ and $C_2$ are minimum covers of $G$, then $C_3$ is a minimum cover of $G$.
+    \end{enumerate}
+    \answer 
+    \begin{enumerate}
+        \item By definition of cover, it suffices to show that for each $ab \in E(G)$, we have $a \in C_3$ or $b \in C_3$. Without loss of generality, we assume that $a \in A$ and $b \in B$.
+
+        Since $C_1$ is a cover, we have by definition of cover that $a \in C_1$ or $b\in C_1$. Similarly since $C_2$ is a cover, we have $a\in C_2$ or $b\in C_2$.
+
+        First suppose that $b\in C_1$. Then $b\in C_1 \cup C_2$. Since $b \in B$, we have $b \in (C_1 \cup C_2) \cap B \subseteq C_3$ as desired.
+
+        So we assume $b \not \in C_1$ and hence $a \in C_1$. 
+        Similarly if $b \in C_2$, then $b \in C_3$ as desired. So we assume $b \not \in C_2$ and hence $a \in C_2$.
+
+        But then $a \in C_1 \cap C_2$. Since $a \in A,$ we have $a \in (C_1 \cap C_2) \cap A \subseteq C_3$ and hence $a \in C_3$ as desired.
+        \item Since $C_1$ and $C_2$ are minimum covers of $G$, we have that $|C_1| = |C_2|.$ By (a), $C_3$ is a cover. Let 
+        \[C_4 := ((C_1 \cap C_2)\cap B) \cup ((C_1 \cup C_2) \cap A).\]
+        By applying (a) symmetrically to the bipartition $(B,A)$ we find that $C_4$ is also a cover of $G$.
+        Since $C_1$ and $C_2$ are minimum covers of $G$, we have that $|C_1| \leq |C_3|$ and $|C_2| \leq C_4$. Hence
+        \begin{align*}
+            |C_1| + |C_2| \leq |C_3| + |C_4| &= |(C_1 \cap C_2) \cap A| +|(C_1 \cup C_2) \cap B|\\ & + |(C_1 \cup C_2) \cap A|  + |(C_1 \cap C_2) \cap B| \\
+            &= |C_1 \cap A| + |C_2 \cap A| + |C_1 \cap B| + |C_2 \cap B| \\
+            &= |C_1| + |C_2|.
+        \end{align*}
+        Thus equality holds through out and we find that $|C_3| + |C_4| = |C_1| + |C_2|.$ Since $|C_1| \leq |C_3|$ and $|C_2| \leq |C_4|$, it follows that $|C_3|=|C_4| = |C_1| = |C_2|$. That is, $C_3$ and $C_4$ are also minimum covers of $G$ as desired.
+    \end{enumerate}
+\end{enumerate}

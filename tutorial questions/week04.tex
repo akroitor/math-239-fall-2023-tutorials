@@ -1,0 +1,57 @@
+\title{Math 239 Fall 2023 Tutorial Questions Week 4}
+
+\date{2023 Oct. 05/06}
+\maketitle
+
+\begin{enumerate}
+    \question{Warm-up Recursive Expressions}
+    \begin{enumerate}
+        \item Write both a regular expression and a recursive decomposition for the set of binary strings, where each block of $1$'s has even length. Find the generating function for both of these expressions and ensure that they are the same.
+        \item Write a recursive expression for the set of strings of length $n$ such that if there is a $1$ at position $j $ there is a $0$ at position $n+1-j$ and if there is a $0$ at position $j$ then there is a $1$ at position $n+1-j$.
+        
+        For example consider a string
+        \begin{align*}
+            a_1 a_2 a_3 \cdots a_{n-2} a_{n-1} a_n.
+        \end{align*}
+        Then if $a_2 = 0$ we must have that $a_{n+1-2} = a_{n-1} = 1$. Find the generating function of these.
+        Is it possible to write this using a non-recursive expression? If yes give it, if not say why.
+    \end{enumerate}
+   
+    
+    \question{Partial Fractions} Use partial fraction decomposition to produce a closed-form formula for the coefficients
+    \[q_n = [x^n] \frac{18+12x}{1-9x^2}\]
+
+    \newpage
+     
+    \question{Avoiding Substrings}
+        In this question we will use recursive decomposition to count the number of binary strings with length $n$ that do not contain $011$ as a substring. 
+        \begin{enumerate}
+             \item Let $S$ be the set of binary strings avoiding 011 as a substring, and let $T$ be the set of binary strings containing exactly one occurrence of 011 at the very end. Find two equations of sets $S$ and $T$. Justify your equations. 
+             \item Deduce the generating series for $S$ with respect to the length of the strings.
+             \item (Partial Fraction Challenge Part) Express the number of binary strings with length $n$ that do not contain $011$ as a substring as a function of $n$ in closed form.
+        \end{enumerate}
+
+        
+    \question{Recurrence}  Let ${a_n}$ be the sequence which satisfies
+    
+        \begin{center}
+            $a_n - 2a_{n-1} - 7a_{n-2} - 4a_{n-3} = 0$
+        \end{center}
+
+        for $n \ge 3$ with initial conditions $a_0 = 3$, $a_1 = 7$, $a_2 = 8$. Determine an explicit formula for $a_n$. 
+
+
+    \question{Counting Binary Trees and Dyck Paths}
+
+    Define a full binary tree to be a binary tree where each vertex has either $0$ or $2$ children. Often we can realize trees and other combinatorial structures recursively. Probably the most popular example is realizing that a full binary tree is either empty, or a vertex followed by two full binary trees.
+    \begin{enumerate}
+        \item Justify that this gives us the GF relationship
+        \begin{align*}
+            B(x) = 1 + x \cdot B(x) \cdot B(x) = 1 + xB(x)^2.
+        \end{align*}
+        Solve this for $B(x)$ and justify which of the two solutions is the legitimate one.
+        \item Using the generalization of binomial expansion in \url{https://en.wikipedia.org/wiki/Binomial_series}, find a closed-form expression for the number of binary trees with $n$ vertices (ie find $[x^n]B(x) =: C_n$).
+    \end{enumerate}
+    After a lot of algebra this is very amazingly the Catalan numbers! These numbers pop up in the wild quite a lot.
+    
+\end{enumerate}

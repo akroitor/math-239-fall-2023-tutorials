@@ -1,0 +1,58 @@
+\title{Math 239 Fall 2023 Tutorial Questions Week 5}
+
+\date{2023 Oct. 19/20}
+\maketitle
+
+\begin{enumerate}
+    \question{A Routine Recurrence} Consider the recurrence
+    \begin{align*}
+        a_{n+3} + 5 a_{n+2} + 3a_{n+1} - 9a_n = 0
+    \end{align*}
+    where $a_0 = 1, a_1 = 3, a_2 = 5$. Find an explicit formula for $a_n$. What is our formula for $a_n$ if we set $a_0 =3, a_1 = 9, a_2 = 15$ (ie triple what they were before) instead?
+    \begin{note}
+        You can use Wolfram Alpha to factor polynomials if you want.
+    \end{note}
+    
+    \question{Another Recurrence} 
+    Let \[A(x) = \frac{1}{1-3x-2x^3}\] 
+    and let 
+    \[a_n = [x^n]A(x).\]
+    \begin{enumerate}
+        \item What homogeneous linear recurrence is satisfied by the coefficients $a_n$?
+        \item What are the initial conditions of this homogeneous linear recurrence?
+        \item Invent a set of combinatorial objects such that the number of objects of size n is $a_n$.
+    \end{enumerate}
+    \question{Degree Sequences} Suppose that $d_1, d_2, \dots, d_n$ are the degrees of a graph $G$, ordered so that $d_1 \ge d_2 \ge \dots \ge d_n$. Then $d_1, d_2, \dots, d_n$ is called the \textbf{degree sequence} of $G$. For each of the following degree sequences, either draw a graph with the degree sequence, or explain why it can't exist.
+    \begin{enumerate}
+        \item $4, 3, 2, 2, 1$
+        \item $6, 5, 4, 3, 2, 1$
+        \item $5, 4, 4, 3, 2, 1$
+        \item $3, 3, 3, 3, 3, 3$
+        \item $2, 2, \dots, 2$ for arbitrary length $n$
+        \item $6, 6, 4, 2, 2, 2, 1, 1$
+    \end{enumerate}
+
+
+    
+    \newpage
+    \question{Graph Complements} Recall that if $G$ is a graph $\overline{G}$, the complement of $G$, has $V(G)=V(\overline{G})$ and $E(\overline{G}=\{uv| uv\notin E(G), u,v\in V(\overline{G})\}$.
+    \begin{enumerate}
+        \item Let $K_n$ be the complete graph on $n$ vertices. Describe $\overline{K_n}$.
+        \item For any $v\in G$ what is $deg_G(v)+deg_{\overline{G}}(v)$?
+        \item Find a graph $G$ such that $G\cong\overline{G}$. 
+        \item Prove that if $|V(G)|\geq 6$ then either $G$ or $\overline{G}$ contains a triangle.
+    \end{enumerate}
+
+     %\newpage
+    
+    \question{Bonus Question: Fibonacci Recurrences}
+    Consider the Fibonacci recurrence given by $f_{n+2} = f_{n+1} + f_n$, where $f_0 = 0$ and $f_1 = 1$. As we know from class and partial fraction decomposition, this has the closed form
+    \begin{align*}
+        f_n = \frac{(1+\sqrt{5})^n}{2^n \sqrt{5}} -  \frac{(1-\sqrt{5})^n}{2^n \sqrt{5}}.
+    \end{align*}
+    Notice that the second term goes to $0$ as $n \to \infty$.
+    \begin{enumerate}
+        \item Find a general formula for the Fibonacci-like recurrence given by $f_{n+2} = f_{n+1} + f_n$, where $f_0 = a$ and $f_1 = b$, where $a,b \in \mathbb{R}$. Then the set of initial conditions is $\mathbb{R}^2$. Conclude that there is a one-dimensional subspace of $\mathbb{R}^2$ such that $f_n \to 0$ when the initial conditions are in this subspace (ie there is a line of possible initial values that make $f_n$ tend to $0$). Compute the line orthogonal to this one. What happens to our sequence when our initial conditions are in this orthogonal line?
+        \item (hard) Find a closed form for the Tribonacci numbers, defined by $f_{n+3} = f_{n+2} + f_{n+1} + f_n$, where $f_0 = a_0 , f_1 = a_1 , f_2 = a_2$. Then the set of initial conditions is $\mathbb{R}^3$. This has a (possibly trivial) subspace of initial conditions that make $f_n \to 0$. What is the dimension of it?
+    \end{enumerate}
+\end{enumerate}

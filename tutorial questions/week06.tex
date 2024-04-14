@@ -1,0 +1,50 @@
+\title{Math 239 Fall 2023 Tutorial Questions Week 6}
+
+\date{2023 Oct. 26/27}
+\maketitle
+
+\begin{enumerate}
+    \question{Matching Vertices} Prove that any graph with at least two vertices has two vertices of the same degree.
+    \begin{note}
+        It may be useful to consider the degree sequence of the graph. 
+    \end{note}
+    
+    \question{Paths and Cycles} Let $G$ be a graph and $k\geq 2$ be the minimum degree of $G$ (denoted $\delta(G)$.
+    \begin{itemize}
+        \item Prove $G$ has a path of length at least $k$.
+        \item Prove $G$ has a cycle of length at least $k+1$. 
+    \end{itemize}
+    
+
+    
+  
+    
+    \question{Vertices and Edges} Let $G$ be a graph with $n$ vertices and $m$ edges, where $m > \frac{(n-1)(n-2)}{2}$. Show that $G$ does not have a vertex of degree $0$
+
+    \newpage
+    
+  \question{Bipartite Graph and Walks} For each even $n\geq 2$, let $G_n$ be the graph with vertex set
+    $$V(G_n) = \{\sigma \in \{0,1\}^n: \sum_{i=1}^n \sigma_i = n/2\}$$
+    and such that there is an edge between vertices $x,y \in V(G)$ if and only if $y$ is obtained from $x$ by replacing a substring $10$ with $01$ or vice versa. For example, $\{1100, 1010\}$ and $\{1010, 1001\}$ are some edges in $G_4$.
+    \begin{enumerate}
+        \item Prove $G_n$ is bipartite.
+        \item Show that there exists a walk between any two vertices in $G_n$, and thus prove that $G_n$ is connected.
+    \end{enumerate}
+
+    \question{Moore Graphs}
+    We often try to import the language for geometric shapes over to graphs. In this light we define the \textbf{distance} between two vertices as
+    \begin{align*}
+        \operatorname{dist} (u,v) = \min_{\gamma \in path(u,v)} \operatorname{length}(\gamma)
+    \end{align*}
+    where $path(u,v)$ is the set of all paths from $u$ to $v$, and the length of a path is the number of edges you cross in the path. We define the \textbf{diameter} of a graph to be
+    \begin{align*}
+        diam(G) = \max_{u,v \in G} \operatorname{dist} (u,v).
+    \end{align*}
+    This is a measure of how ``spread out" our graph is; if our graph has lots of edges you expect the diameter to be high, and if the graph has few edges you expect a low diameter.
+    
+    Let $G$ be $d$-regular and have diameter $k$. Show that
+    \begin{align*}
+        |V(G)| \leq 1 + d \sum_{i=1}^{k} (d-1)^{i-1}.
+    \end{align*}
+    A graph in which we achieve equality is known as a \textbf{Moore graph}. Some examples of Moore graphs are odd cycles, complete graphs, and the Petersen graph.
+\end{enumerate}

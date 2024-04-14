@@ -1,0 +1,43 @@
+\title{Math 239 Fall 2023 Tutorial Questions Week 3}
+
+\date{2023 Sep. 28/29}
+\maketitle
+
+\begin{enumerate}
+    \question{Ambiguous Expressions} Let $S$ be the set of all strings where each block has even length.
+    \begin{enumerate}
+        \item Come up with an unambiguous expression for $S$. Justify in about a sentence why this is unambiguous.
+        \item Using your unambiguous expression, find the generating function for $S$ (with respect to length). What do you notice?
+        \item Using your unambiguous expression, find the generating function for $S$ with the weight function $w(0) = 1$ and $w(1) = 2$.
+        \item Come up with an \textit{ambiguous} expression for $S$ and try to find the generating function for $S$ (with respect to length) using it. Compare the coefficients with your coefficients from (b). What do you notice? What will you notice in general?
+    \end{enumerate}
+    
+    \question{Unambiguous Expressions} 
+    \begin{enumerate}
+        \item Provide an unambiguous regular expression ${\rm R}$ that produces the set of all binary strings that begin and end with the same bit (this includes the empty string).  What rational function does ${\rm R}$ lead to? 
+        \item Let $\mathcal{S}$ be the set of all strings where any occurrence of 1 must be immediately followed by at least 5 consecutive 0’s.  Find an unambiguous regular expression ${\rm R}$ that produces $\mathcal{S}$, and provide the rational function that ${\rm R}$ leads to.     \end{enumerate}
+    
+    \question{Compositions} Let $\mathcal{E}$ be the set of compositions $\gamma= (c_1, c_2, \cdots, c_k)$ of any length, in which part $c_i$ is congruent to $i$ (modulo $2$). We consider empty composition $\epsilon = ()$ in the set $\mathcal{E}$. 
+
+    Express the set in terms of disjoint unions/Cartesian products, then obtain the generating series of the set with respect to size as a rational function.
+    
+    \question{Generating Series} Determine the generating series, with respect to length, for the number of binary strings of length $n$ which start with a 0, end with a 1, and do not contain 0 as a block. Write out the first four non-zero terms of the generating series and the corresponding strings.
+
+
+    \question{Bonus Material: A Second GF for Binomial Coefficients} This is not $239$ material and will not be covered in $239$. You should not use this notation or train of thought for assignments or tests. This is intended as a challenging question for people who are interested.
+    
+    Single-variate generating functions are familiar to us at this point in the course. We can similarly define bi-variate generating functions as formal power series
+    \begin{align*}
+        A(x,y) =  \sum_{i \geq 0} \sum_{j \geq 0} a_{i,j} x^i y^j.
+    \end{align*}
+
+    A familiar GF to us is the GF for binomial coefficients with respect to ``$k$"
+    \begin{align*}
+        \sum_{k \geq 0} \binom{n}{k} x^k = (1+x)^n.
+    \end{align*}
+    Using this, and the notion of a bi-variate generating function, find a closed form for the GF for binomial coefficients with respect to ``$n$"
+    \begin{align*}
+        \sum_{n \geq 0} \binom{n}{k} y^n.
+    \end{align*}
+    
+\end{enumerate}

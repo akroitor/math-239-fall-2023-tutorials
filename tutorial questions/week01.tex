@@ -1,0 +1,33 @@
+\title{Math 239 Fall 2023 Tutorial Questions Week 1}
+
+\date{2023 Sep. 14/15}
+\maketitle
+
+\begin{enumerate}
+    \question{Combinatorial Identity 1} Give a combinatorial proof (that is, by counting the same set in two different ways), of the following identity:
+    \begin{align*}
+        \sum^n_{k=1}\sum^{k-1}_{j=0}{{k-1}\choose j} =2^n-1.
+    \end{align*}
+    
+    \question{Counting Two Ways} Give a combinatorial argument (that is, by counting the same set in two different ways), of the following identity: 
+    \begin{align*}
+        7{n \choose 7}=n{n-1\choose 6}.
+    \end{align*}
+
+    
+    \question{Multisets and Monomials} A \emph{monomial} in the $n$ variables $x_1,x_2,...,x_n$ is an expression of the form 
+    \begin{align*}
+        x_1^{a_1}x_2^{a_2}...x_n^{a_n}
+    \end{align*}
+    where each $a_i\in\mathbb{N}$. The \emph{degree} of the monomial $x_1^{a_1}x_2^{a_2}...x_n^{a_n}$ is the sum $\sum^n_{i=1}a_i$.
+
+    Give a bijection between the set of monomials of degree $k$ in the variables $x_1,x_2,...,x_n$ and the set of $k$-element multisets with elements of $n$ types. 
+    
+    \question{Evens and Odds} For $n\geq 1$, give a bijecctive proof of the following identity:
+    \begin{align*}
+        \sum_{\text{k is even}} {n \choose k}=\sum_{\text{k is odd}}{n \choose k}.
+    \end{align*}
+
+    For a bijective proof, you need to describe two sets $A$ and $B$ whose sizes correspond to the LHS and RHS, write down a function $f: A\rightarrow B$, show that $f(x)\in B$ for all $x\in A$, write down the inverse function $f^{-1}$, and show that $f^{-1}(y)\in A$ for all $y\in B$. In general you need to prove that $f$ and $f^{-1}$ are actually inverses of each other, but you will not have to do that in this problem. 
+    
+\end{enumerate}
